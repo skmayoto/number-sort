@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Custom number sort</title>
+    </head>
+    <body>
+        <h1>
+            This is a custom number sorting
+        </h1>
+        <div id="result"></div>
+
+        <script>
+            var num = [
+                23,
+                78,
+                90,
+                2,
+                34,
+                1,
+                98,
+                7,
+                56,
+                23,
+                68,
+                2,
+                67,
+                98,
+                223,
+                456,
+                65,
+                32,
+                57,
+                38,
+                96,
+                24,
+                46,
+                789
+            ];
+            function customSort(num) {
+                //find num length
+                var len, i, x;
+                len = num.length;
+                var sortedNum = [];
+
+                //initialize sortedNum to the first element of num
+                sortedNum[0] = num[0];
+
+                //sort numbers
+                for (i = 1; i < len; i++) {
+                    for (x = 0; x < sortedNum.length; x++) {
+                        if (num[i] < sortedNum[x]) {
+                            sortedNum.splice(x, 0, num[i]);
+                            break;
+                        }
+                    }
+                    if (x == sortedNum.length) {
+                        sortedNum.push(num[i]);
+                    }
+                }
+                return sortedNum;
+            }
+            document.getElementById("result").innerHTML = customSort(num);
+        </script>
+    </body>
+</html>
